@@ -21,7 +21,7 @@ Para alterar os dados de uma pessoa, antes de apertar o botão Change, é necess
 <h1>Main ・ Página Incial ・ ホムパジ</h1>
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/82424514/138618725-62e56103-753c-47ee-8f59-29670463c2aa.png">
+<img src="https://user-images.githubusercontent.com/82424514/138757363-ed93bdf0-6970-4640-9164-ab776154a3d7.png">
 </p>
 
 <h1>PDF</h1>
