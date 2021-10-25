@@ -1,8 +1,11 @@
 使い方
 
-このプラグラムはPYTHONで作られました。全ての手順をするのは一つ目はユーザーが個人情報を記入し、REGISTERボタンを押し、その後プラグラムがそれをMYSQLのサーバに入力します。二つ目は検索するために、
-QUERYボタンを押し、それで全部情報を見せてあげます。それと、条件検索をするのは必要なTEXTCAMPを記入し、QUERYボタンを押します。三つ目は一人除くために、二つ方法があります。ホムパジにあるIDのTEXTCAMPを
-記入し、EXCLUDEBYIDボタンを押したりLISTWINDOWにあるEXCLUDEボタンを押したりできます。そして四つ目はPDFを作るために、LISTWINDOWにあるGETPDFボタンを押し、それでPDFができます。
+このプラグラムはPYTHONで作られました。全ての手順は一つ目はユーザーが個人情報を記入し、REGISTERボタンを押し、その後プラグラムがそれをMYSQLのサーバに入力します。二つ目は人を検索するために、
+QUERYボタンを押し、それで全部情報を見せてあげます。それと、条件検索をするのは必要なTEXTCAMPを記入し、QUERYボタンを押します。三つ目は一人除くために、二つ方法があります。ホムパジにあるIDのTEXTCAMPを記入し、EXCLUDEBYIDボタンを押したりLISTWINDOWにあるEXCLUDEボタンを押したりできます。そして四つ目はPDFを作るために、LISTWINDOWにあるGETPDFボタンを押し、それでPDFができます
+
+Modo de uso
+
+Este programa foi criado com Python. A respeito de todas os processos, o primeiro passo é informar as informações pessoas, apertar o botão Register, e após, o programa irá inseirir os dados no servidor MySQL. No segundo passo, para buscar pessoas, apeta-se o botão Query e com isso o programa irá mostrar as informações. Em terceiro, para remover uma pessoa, há duas formas, sendo elas preencher o campo de Id na página incial e apertar o botão Exclude by Id ou apertar o botão Exclude que há na janela da lista. Por fim, como quarto passo, para gerar um PDF, aperta-se o botão Get PDF e com isso o PDF é gerado.
 
 
 <h1>Main ・ Página Incial ・ ホムパジ</h1>
