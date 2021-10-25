@@ -234,9 +234,9 @@ font: 75 15pt &quot;Segoe UI&quot;;</string>
     <widget class="QPushButton" name="RegisterButton">
      <property name="geometry">
       <rect>
-       <x>30</x>
-       <y>510</y>
-       <width>171</width>
+       <x>170</x>
+       <y>540</y>
+       <width>131</width>
        <height>51</height>
       </rect>
      </property>
@@ -322,9 +322,9 @@ font: 75 15pt &quot;Segoe UI&quot;;</string>
      </property>
      <property name="geometry">
       <rect>
-       <x>220</x>
-       <y>510</y>
-       <width>171</width>
+       <x>30</x>
+       <y>540</y>
+       <width>131</width>
        <height>51</height>
       </rect>
      </property>
@@ -348,9 +348,9 @@ font: 75 15pt &quot;Segoe UI&quot;;</string>
      </property>
      <property name="geometry">
       <rect>
-       <x>410</x>
-       <y>510</y>
-       <width>171</width>
+       <x>460</x>
+       <y>540</y>
+       <width>131</width>
        <height>51</height>
       </rect>
      </property>
@@ -365,7 +365,33 @@ font: 75 15pt &quot;Segoe UI&quot;;</string>
 font: 75 15pt &quot;Segoe UI&quot;;</string>
      </property>
      <property name="text">
-      <string>Exclude - ID</string>
+      <string>Exclude</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="ChangeButton">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>320</x>
+       <y>540</y>
+       <width>131</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(255, 255, 255);
+font: 75 15pt &quot;Segoe UI&quot;;</string>
+     </property>
+     <property name="text">
+      <string>Change</string>
      </property>
     </widget>
    </widget>
