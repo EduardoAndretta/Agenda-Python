@@ -10,7 +10,7 @@
 
 <h3>Modo de uso</h3>
 
-Explicarei o modo de uso
+Explicarei o modo de uso.
 
 Este programa foi criado com Python. A respeito de todas os processos, o primeiro passo é informar as informações pessoas, apertar o botão Register, e após, o programa inserirá os dados no servidor MySQL. No segundo passo, para buscar pessoas, apeta-se o botão Query e com isso o programa mostrará as informações. Em terceiro, para remover uma pessoa, há duas formas, sendo elas preencher o campo de Id na página incial e apertar o botão Exclude by Id ou apertar o botão Exclude que há na janela da lista. Por fim, como quarto passo, para gerar um PDF, aperta-se o botão Get PDF e com isso o PDF é gerado.
 
