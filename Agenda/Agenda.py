@@ -128,9 +128,12 @@ def excluirContatoTopo():
    cursor.execute(comando_SQL)
    contatos_lidos = cursor.fetchall()
 
-   valorId = contatos_lidos[linhaContato][0]
-   cursor.execute(f"DELETE FROM contatos WHERE id='{str(valorId)}'")
-   banco.commit()
+   if not contatos_lidos:
+        print("Não há contatos inseridos")
+   else:
+        valorId = contatos_lidos[linhaContato][0]
+        cursor.execute(f"DELETE FROM contatos WHERE id='{str(valorId)}'")
+        banco.commit()
 
 #Change
 def alterarContato():
