@@ -3,8 +3,6 @@ import mysql.connector
 from reportlab.pdfgen import canvas
 import sqlite3
 
-
-
 #Insert
 def cadastrarContato():
     campoNome = agenda.NameCustomer.text()
@@ -132,11 +130,12 @@ def excluirContatoTopo():
         print("Não há contatos inseridos")
    else:
         valorId = contatos_lidos[linhaContato][0]
+
         cursor.execute(f"DELETE FROM contatos WHERE id='{str(valorId)}'")
         banco.commit()
 
 #Change
-def alterarContato():
+def alterarContatoFront():
     listarContatos.show()
 
     campoId = agenda.IDCustomer.text()
@@ -199,6 +198,92 @@ def alterarContato():
             cursor.execute(comando_SQL)
             print("Contato atualizado com sucesso")
 
+
+def alterarContato():
+
+    linhaContato = listarContatos.tableContatos.currentRow()
+
+    cursor = banco.cursor()
+    comando_SQL = "SELECT * FROM contatos"
+    cursor.execute(comando_SQL)
+    contatos_lidos = cursor.fetchall()
+
+    if not contatos_lidos:
+        print("Não há contatos inseridos")
+    else:
+        valorId = contatos_lidos[linhaContato][0]
+        valorNome = listarContatos.tableContatos.item(linhaContato, 1).text()
+        valorEmail = listarContatos.tableContatos.item(linhaContato, 2).text()
+        valorTelefone = listarContatos.tableContatos.item(linhaContato, 3).text()
+        valorTipoTelefone = listarContatos.tableContatos.item(linhaContato, 4).text()
+
+    #Verification - ID - Name - Email - Tel - Type
+
+    #Get the values on database
+
+    cursor.execute(f"SELECT * FROM contatos WHERE id = {str(valorId)}")
+    result = cursor.fetchall()
+
+    if not result:
+        print("No data")
+    else:
+        nameData = result[0][1]
+        emailData = result[0][2]
+        telData = result[0][3]
+        typeTel = result[0][4]
+
+        # Comparing values (Database <-> CurrentRow)
+
+        cod1 = True
+        cod2 = True
+        cod3 = True
+        cod4 = True
+
+        if valorNome == nameData:
+            cod1 = False
+        if valorEmail == emailData:
+            cod2 = False
+        if valorTelefone == telData:
+            cod3 = False
+        if valorTipoTelefone == typeTel:
+            cod4 = False
+        elif valorTipoTelefone != "Residencial" or valorTipoTelefone != "Celular":
+            cod4 = False
+
+        if cod1 == False and cod2 == False and cod3 == False and cod4 == False:
+            print("Não há campos para realizar a alteração")
+        else:
+
+            # Create a comand for ALTER
+
+            SQLfinalComand = "UPDATE contatos SET"
+
+            if cod1 == True:
+                SQLfinalComand += f" nome = '{str(valorNome)}'"
+
+            if cod2 == True and cod1 == True:
+                SQLfinalComand += f",email = '{str(valorEmail)}' "
+            elif cod2 == True:
+                SQLfinalComand += f" email = '{str(valorEmail)}'"
+
+            if cod3 == True and (cod2 == True or cod1 == True):
+                SQLfinalComand += f",telefone = '{str(valorTelefone)}'"
+            elif cod3 == True:
+                SQLfinalComand += f" telefone = '{str(valorTelefone)}'"
+
+            if cod4 == True and (cod3 == True or cod2 == True or cod1 == True):
+                SQLfinalComand += f",tipo_telefone = '{str(valorTipoTelefone)}'"
+            elif cod4 == True:
+                SQLfinalComand += f" tipo_telefone = '{str(valorTipoTelefone)}'"
+
+            SQLfinalComand += f" WHERE id = '{str(valorId)}'"
+
+            cursor = banco.cursor()
+            cursor.execute(SQLfinalComand)
+            banco.commit()
+            print("Alterado com sucesso")
+
+
 #Get PDF
 def gerarPDF():
     cursor = banco.cursor()
@@ -236,14 +321,14 @@ app=QtWidgets.QApplication([])
 agenda=uic.loadUi("agendaFront.ui")
 listarContatos=uic.loadUi("ListFront.ui")
 
-
 #Methods for buttons
-agenda.ChangeButton.clicked.connect(alterarContato)
+agenda.ChangeButton.clicked.connect(alterarContatoFront)
 agenda.RegisterButton.clicked.connect(cadastrarContato)
 agenda.QueryButton.clicked.connect(consultarContatos)
 agenda.ExcludeButton.clicked.connect(excluirContatoBotao)
 listarContatos.btnExcluir.clicked.connect(excluirContatoTopo)
 listarContatos.btnGerarPDF.clicked.connect(gerarPDF)
+listarContatos.btnAlterar.clicked.connect(alterarContato)
 
 #MySQL conection
 banco = mysql.connector.connect(
